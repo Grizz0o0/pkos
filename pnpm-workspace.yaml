@@ -1,3 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+  - "tooling/*"
+
+minimumReleaseAge: 0
+dangerouslyAllowAllBuilds: true
