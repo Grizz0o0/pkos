@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "@repo/ui/globals.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,11 +13,14 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | PKOS Docs",
-    default: "PKOS Documentation",
+    template: "%s | PKOS",
+    default: "PKOS — Personal Knowledge Operating System",
   },
   description:
-    "Developer documentation for PKOS — API Reference, Architecture, ADR, Roadmap, and Developer Guide.",
+    "AI-powered learning platform: transform Markdown notes into quizzes, track learning progress with spaced repetition and analytics.",
+  metadataBase: new URL(
+    process.env["NEXT_PUBLIC_APP_URL"] ?? "http://localhost:3000",
+  ),
 };
 
 export default function RootLayout({
@@ -26,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="vi" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
