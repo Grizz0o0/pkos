@@ -40,11 +40,9 @@ yarn-error.log*
 *.pem
 
 # Changesets
-.changeset/*.md
 !.changeset/config.json
 
 # Prisma
-prisma/migrations/migration_lock.toml
 
 # Agents
 .agents/
