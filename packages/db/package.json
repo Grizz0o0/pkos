@@ -22,14 +22,16 @@
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "pg": "^8.13.1",
+    "pg-connection-string": "^2.14.0",
     "prisma": "^7.8.0"
   },
   "devDependencies": {
     "@eslint/js": "9.20.0",
-    "@repo/eslint-config": "workspace:*",
+    "@prisma/config": "^7.8.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/pg": "^8.11.10",
+    "@types/pg-connection-string": "^2.0.0",
     "eslint": "^9.20.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"

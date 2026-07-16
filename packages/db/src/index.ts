@@ -7,10 +7,18 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
+import { parse } from "pg-connection-string";
+
+const connectionOptions = (process.env["DATABASE_URL"]
+  ? parse(process.env["DATABASE_URL"])
+  : {}) as pg.PoolConfig;
+
+if (typeof connectionOptions.password === "string") {
+  connectionOptions.password = decodeURIComponent(connectionOptions.password);
+}
+
 // Khởi tạo connection pool thông qua pg driver
-const pool = new pg.Pool({
-  connectionString: process.env["DATABASE_URL"],
-});
+const pool = new pg.Pool(connectionOptions);
 
 // Tạo adapter tương thích với Prisma 7
 const adapter = new PrismaPg(pool);
