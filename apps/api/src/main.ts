@@ -1,10 +1,17 @@
 import "dotenv/config";
 import { NestFactory } from "@nestjs/core";
+import { VersioningType } from "@nestjs/common";
 import { AppModule } from "./app.module.js";
 import { env } from "@repo/env";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  // Kích hoạt API Versioning (ví dụ: /v1/health)
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: "1",
+  });
 
   // Cho phép CORS cho Next.js Client
   app.enableCors({
